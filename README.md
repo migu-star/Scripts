@@ -7,6 +7,6 @@
   </p>
 </div>
 
-<h3>Knowledgebase</h3>
-<h2>PolyBattle</h2>
-<h1>Dont works in bad exploits and script-ware</h1>
+<h2>Knowledgebase</h2>
+<h3>PolyBattle</h3>
+<h4>Dont works in bad exploits and script-ware</h4>
