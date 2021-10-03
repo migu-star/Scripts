@@ -9,4 +9,4 @@
 
 <h2>Knowledgebase</h2>
 <h3>PolyBattle</h3>
-<h4>Dont works in bad exploits and script-ware</h4>
+<h4>1. Dont works in bad exploits and script-ware</h4>
