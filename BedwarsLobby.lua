@@ -2,7 +2,46 @@
     Bedwars script made by migu (Lobby)
     
     UI made by Devyonte
+
+    It will help you to made your own script :D, i do it source code :b
 ]]
+
+
+
+if syn then
+    syn.request({
+        Url = "http://127.0.0.1:6463/rpc?v=1",
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json",
+            ["Origin"] = "https://discord.com"
+        },
+        Body = game:GetService("HttpService"):JSONEncode({
+            cmd = "INVITE_BROWSER",
+            args = {
+                code = "rGdF4Y9uza"
+            },
+            nonce = game:GetService("HttpService"):GenerateGUID(false)
+        }),
+     })
+        
+elseif request then
+    request({
+        Url = 'http://127.0.0.1:6463/rpc?v=1',
+        Method = 'POST', -- <optional> | GET/POST/HEAD, etc.
+        Headers = {
+            ["Content-Type"] = "application/json",
+            ["Origin"] = "https://discord.com"
+        },
+        Body = game:GetService("HttpService"):JSONEncode({
+            cmd = "INVITE_BROWSER",
+            args = {
+                code = "rGdF4Y9uza"
+            },
+            nonce = game:GetService("HttpService"):GenerateGUID(false)
+        }),
+    })
+end
 
 
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/6W1ZqV53"))()
@@ -51,6 +90,6 @@ while true do wait()
         virtualU:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
         
         -- idk if work, it is other method for dont bug surfacegui!, bedwars use surfacegui and i dont want bugs.
-end)
-    end
+    end)
+end
 end
