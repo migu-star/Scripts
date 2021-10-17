@@ -1,8 +1,11 @@
+local PetsEquipadas = game:GetService("Players").ElQueRompeSS.PlayerData.EquippedPets:GetChildren()
+local PetsFarmeando = 0
+
 local candymade = 0 
 local startcandy = game:GetService("Players").LocalPlayer.PlayerData.Currency.Candy.Value
 local farmingcandy = true
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/zxciaz/VenyxUI/main/Reuploaded"))()
-local venyx = library.new("StarScriptsX", 5012544693)
+local venyx = library.new("StarScriptsX - Pet legends - Multi pet in beta", 5012544693)
 
 local home = venyx:addPage("Home", 5012544693)
 
@@ -56,8 +59,14 @@ print("Loaded")
 while true do wait()
     if farmingcandy then
         if not game:GetService("Workspace").TargetsMarkers.Kreis:FindFirstChild("CandyChest") then
+            local PetsFarmeando = 0
             game:GetService("ReplicatedStorage").Events.TouchedTelport:FireServer("Halloween")
-            game:GetService("ReplicatedStorage").Events.GiveTarget:InvokeServer(workspace.Chest:WaitForChild("CandyChest"))
+            repeat
+                game:GetService("ReplicatedStorage").Events.GiveTarget:InvokeServer(workspace.Chest:WaitForChild("CandyChest"))
+                PetsFarmeando = PetsFarmeando + 1
+                print(PetsFarmeando)
+                print(PetsEquipadas)
+            until PetsFarmeando == #PetsEquipadas
         end
     end
     candymade = game:GetService("Players").LocalPlayer.PlayerData.Currency.Candy.Value - startcandy
