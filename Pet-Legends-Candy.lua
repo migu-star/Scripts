@@ -1,4 +1,4 @@
-local PetsEquipadas = game:GetService("Players").ElQueRompeSS.PlayerData.EquippedPets:GetChildren()
+local PetsEquipadas = game:GetService("Players").LocalPlayer.PlayerData.EquippedPets:GetChildren()
 local PetsFarmeando = 0
 
 local candymade = 0 
