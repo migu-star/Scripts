@@ -51,7 +51,7 @@ end
 
 others:addButton("Destroy script", function()
 	farmingcandy = false
-	game:GetService("CoreGui"):FindFirstChild("StarScriptsX"):Destroy()
+	game:GetService("CoreGui"):FindFirstChild("StarScriptsX - Pet legends - Multi pet in beta"):Destroy()
 end)
 venyx:SelectPage(venyx.pages[1], true)
 print("Loaded")
