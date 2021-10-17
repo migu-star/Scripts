@@ -54,14 +54,19 @@ EggsSec:addDropdown("Select currency", TiposDeDinero, function(Tipo)
 end)
 
 EggsSec:addDropdown("Select egg", Eggs, function(Huevo)
-    print("Selected", huevo)
+    print("Selected", Huevo)
     selectedegg = Huevo
 end)
 
 local AutoEgg = false
+local AutoBestPet = true
 EggsSec:addToggle("Auto open egg", false, function(value)
     AutoEgg = value
 end)
+EggsSec:addToggle("Auto best pet (To do)", true, function(value)
+    AutoBestPet = value
+end)
+
 -- settings page
 local settingssec = venyx:addPage("Settings", 5012544693)
 local colors = settingssec:addSection("Colors")
@@ -111,6 +116,9 @@ while true do wait()
         if TipoDinero >= tonumber(PreciosEggs[selectedegg]) then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs[selectedegg].CFrame
             game:GetService("ReplicatedStorage").Events.BuyEgg:InvokeServer(selectedegg,1)
+            if AutoBestPet then
+                -- To do
+            end
         end
     end
 end
