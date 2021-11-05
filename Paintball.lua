@@ -3,6 +3,7 @@
     
     StarScriptsX
 ]]--
+loadstring(game:HttpGet("https://raw.githubusercontent.com/migu-star/Scripts/main/LoadScript.lua"))()
 
 _WmE6J1WmzkFdOXvX, Protected_by_MoonSecV2, Discord = 'discord.gg/gQEH2uZxUk'
 
