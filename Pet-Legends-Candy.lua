@@ -1,5 +1,3 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/migu-star/Scripts/main/LoadScript.lua"))()
-
 local PreciosEggs = require(game:GetService("ReplicatedStorage").GameInfo.EggsCost)
 
 local selectedcurrency = "Money"
