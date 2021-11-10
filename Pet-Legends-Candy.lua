@@ -5,6 +5,12 @@ local TipoDinero = game:GetService("Players").LocalPlayer.PlayerData.Currency[se
 local PetsEquipadas = game:GetService("Players").LocalPlayer.PlayerData.EquippedPets:GetChildren()
 local PetsFarmeando = 0
 
+function tp(PosCFrame)
+    local TweenService = game:GetService("TweenService")
+    local tween = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = PosCFrame})
+    tween:Play()
+end
+
 -- Currency table
 TiposDeDinero = {}
 
@@ -96,7 +102,7 @@ others:addButton("Destroy script", function()
 end)
 venyx:SelectPage(venyx.pages[1], true)
 print("Loaded")
-
+local backposition = nil
 while true do wait()
     TipoDinero = game:GetService("Players").LocalPlayer.PlayerData.Currency[selectedcurrency].Value
     PetsEquipadas = game:GetService("Players").LocalPlayer.PlayerData.EquippedPets:GetChildren()
@@ -114,8 +120,10 @@ while true do wait()
     info:updateButton(candymadebutton, "Candy made: ".. candymade)
     if AutoEgg then
         if TipoDinero >= tonumber(PreciosEggs[selectedegg]) then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs[selectedegg].CFrame
+	    backposition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            tp(game:GetService("Workspace").Eggs[selectedegg].CFrame)
             game:GetService("ReplicatedStorage").Events.BuyEgg:InvokeServer(selectedegg,1)
+	    tp(backposition)
             if AutoBestPet then
                 -- To do
             end
