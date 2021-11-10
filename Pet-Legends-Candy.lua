@@ -103,30 +103,45 @@ end)
 venyx:SelectPage(venyx.pages[1], true)
 print("Loaded")
 local backposition = nil
-while true do wait()
-    TipoDinero = game:GetService("Players").LocalPlayer.PlayerData.Currency[selectedcurrency].Value
-    PetsEquipadas = game:GetService("Players").LocalPlayer.PlayerData.EquippedPets:GetChildren()
-    if farmingcandy then
-        if not game:GetService("Workspace").TargetsMarkers.Kreis:FindFirstChild("CandyChest") then
-            local PetsFarmeando = 0
-            game:GetService("ReplicatedStorage").Events.TouchedTelport:FireServer("Halloween")
-            repeat
-                game:GetService("ReplicatedStorage").Events.GiveTarget:InvokeServer(workspace.Chest:WaitForChild("CandyChest"))
-                PetsFarmeando = PetsFarmeando + 1
-            until PetsFarmeando >= #PetsEquipadas
+coroutine.wrap(function()
+    while true do wait()
+        TipoDinero = game:GetService("Players").LocalPlayer.PlayerData.Currency[selectedcurrency].Value
+        PetsEquipadas = game:GetService("Players").LocalPlayer.PlayerData.EquippedPets:GetChildren()
+        if farmingcandy then
+            if not game:GetService("Workspace").TargetsMarkers.Kreis:FindFirstChild("CandyChest") then
+                local PetsFarmeando = 0
+                game:GetService("ReplicatedStorage").Events.TouchedTelport:FireServer("Halloween")
+                repeat
+                    game:GetService("ReplicatedStorage").Events.GiveTarget:InvokeServer(workspace.Chest:WaitForChild("CandyChest"))
+                    PetsFarmeando = PetsFarmeando + 1
+                until PetsFarmeando >= #PetsEquipadas
+            end
         end
     end
-    candymade = game:GetService("Players").LocalPlayer.PlayerData.Currency.Candy.Value - startcandy
-    info:updateButton(candymadebutton, "Candy made: ".. candymade)
+end)()
+
+coroutine.wrap(function()
+    while true do wait()
+        candymade = game:GetService("Players").LocalPlayer.PlayerData.Currency.Candy.Value - startcandy
+        info:updateButton(candymadebutton, "Candy made: ".. candymade)
+    end
+end)()
+
+while true do wait()
     if AutoEgg then
-        if TipoDinero >= tonumber(PreciosEggs[selectedegg]) then
+        TipoDinero = game:GetService("Players").LocalPlayer.PlayerData.Currency[selectedcurrency].Value
+        print(TipoDinero)
+        if tonumber(PreciosEggs[selectedegg]) ~= nil and TipoDinero ~= nil and tonumber(TipoDinero) >= tonumber(PreciosEggs[selectedegg]) then
 	    backposition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-            tp(game:GetService("Workspace").Eggs[selectedegg].CFrame)
-            game:GetService("ReplicatedStorage").Events.BuyEgg:InvokeServer(selectedegg,1)
+
+        tp(game:GetService("Workspace").Eggs[selectedegg].CFrame)
+        wait(1.5)
+        game:GetService("ReplicatedStorage").Events.BuyEgg:InvokeServer(selectedegg,1)
+        wait(0.5)
 	    tp(backposition)
-            if AutoBestPet then
-                -- To do
-            end
+        if AutoBestPet then
+            -- To do
+        end
         end
     end
 end
