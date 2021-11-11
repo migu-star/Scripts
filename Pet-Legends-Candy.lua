@@ -140,7 +140,9 @@ while true do wait()
         wait(0.5)
 	    tp(backposition)
         if AutoBestPet then
-            -- To do
+            for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.GameGui.Pets.Best.MouseButton1Click)) do
+                v.Function()
+            end
         end
         end
     end
