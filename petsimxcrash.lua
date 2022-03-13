@@ -36,8 +36,10 @@ function redirectdsc()
 end
 local packetsended = 0
 redirectdsc()
+
+
 Libreria = require(game:GetService('ReplicatedStorage').Framework.Library)
-function Crash()
+function Crashear()
     spawn(function()
         Libreria.Network.Fire('request world', "Fantasy")
         Libreria.Network.Fire('performed teleport')
@@ -66,9 +68,7 @@ end
 
 local packetstosend = getgenv().packets / 4
 for i=1,packetstosend do
-    spawn(function()
-        Crash()
-    end)
+    spawn(Crashear)
 end
 
 local tabla = {
