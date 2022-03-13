@@ -1,3 +1,7 @@
+if not getgenv().packets then
+    getgenv().packets = 32000
+end
+
 function redirectdsc()
     if syn then
        syn.request({
