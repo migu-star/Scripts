@@ -1,4 +1,4 @@
-if not getgenv().packets then -- Add packets if not found
+if getgenv().packets == nil then -- Add packets if not found
     getgenv().packets = 32000
 end
 
