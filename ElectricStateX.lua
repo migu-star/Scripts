@@ -1,4 +1,4 @@
-    setclipboard("discord.gg/rGdF4Y9uza")
+    setclipboard("discord.gg/RTDtEY9drb")
     if syn then
         syn.request({
            Url = "http://127.0.0.1:6463/rpc?v=1",
@@ -10,7 +10,7 @@
            Body = game:GetService("HttpService"):JSONEncode({
                cmd = "INVITE_BROWSER",
                args = {
-                   code = "rGdF4Y9uza"
+                   code = "RTDtEY9drb"
                },
                nonce = game:GetService("HttpService"):GenerateGUID(false)
            }),
