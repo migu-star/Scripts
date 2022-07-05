@@ -1,4 +1,4 @@
-setclipboard("https://discord.gg/rGdF4Y9uza")
+setclipboard("https://discord.gg/RTDtEY9drb")
 if syn then
     syn.request({
        Url = "http://127.0.0.1:6463/rpc?v=1",
@@ -10,7 +10,7 @@ if syn then
        Body = game:GetService("HttpService"):JSONEncode({
            cmd = "INVITE_BROWSER",
            args = {
-               code = "rGdF4Y9uza"
+               code = "RTDtEY9drb"
            },
            nonce = game:GetService("HttpService"):GenerateGUID(false)
        }),
@@ -33,5 +33,7 @@ elseif request then
         }),
     })
 end
+
+
 
 game.Players.LocalPlayer:kick("\nProject Meteor / StarScriptsX\n\nThe new discord invite has been copied to clipboard.\n\nJoin it for get new script.")
