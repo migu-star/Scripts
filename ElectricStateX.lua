@@ -27,7 +27,7 @@ elseif request then
         Body = game:GetService("HttpService"):JSONEncode({
             cmd = "INVITE_BROWSER",
             args = {
-                code = "rGdF4Y9uza"
+                code = "RTDtEY9drb"
             },
             nonce = game:GetService("HttpService"):GenerateGUID(false)
         }),
@@ -36,4 +36,4 @@ end
 
 
 
-game.Players.LocalPlayer:kick("\nProject Meteor / StarScriptsX\n\nThe new discord invite has been copied to clipboard.\n\nJoin it for get new script.")
+game.Players.LocalPlayer:kick("\nProject Meteor / StarScriptsX\n\nThe new discord invite has been copied to clipboard.\n\nJoin it for get new script.\n\nhttps://discord.gg/RTDtEY9drb")
